@@ -39,7 +39,6 @@ class App extends Component {
       { symbol: '0', cols: 3, action: this.reset },
       { symbol: '.', cols: 3, action: this.reset },
       { symbol: '=', cols: 3, action: this.reset }
-      //{ symbol: 'C', cols: 3, action: this.reset },
 
     ];
     return (
