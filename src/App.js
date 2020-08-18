@@ -17,28 +17,29 @@ class App extends Component {
   }
 
   addToCurrent = (symbol) => {
+    console.log(symbol);
     this.setState({ current: this.state.current + symbol });
   }
   render() {
 
     const buttons = [
       { symbol: 'C', cols: 3, action: this.reset },
-      { symbol: '/', cols: 3, action: this.reset },
-      { symbol: '7', cols: 3, action: this.reset },
-      { symbol: '8', cols: 3, action: this.reset },
-      { symbol: '9', cols: 3, action: this.reset },
-      { symbol: 'x', cols: 3, action: this.reset },
-      { symbol: '4', cols: 3, action: this.reset },
-      { symbol: '5', cols: 3, action: this.reset },
-      { symbol: '6', cols: 3, action: this.reset },
-      { symbol: '-', cols: 3, action: this.reset },
-      { symbol: '1', cols: 3, action: this.reset },
-      { symbol: '2', cols: 3, action: this.reset },
-      { symbol: '3', cols: 3, action: this.reset },
-      { symbol: '+', cols: 3, action: this.reset },
-      { symbol: '0', cols: 3, action: this.reset },
-      { symbol: '.', cols: 3, action: this.reset },
-      { symbol: '=', cols: 3, action: this.reset }
+      { symbol: '/', cols: 3, action: this.addToCurrent },
+      { symbol: '7', cols: 3, action: this.addToCurrent },
+      { symbol: '8', cols: 3, action: this.addToCurrent },
+      { symbol: '9', cols: 3, action: this.addToCurrent },
+      { symbol: 'x', cols: 3, action: this.addToCurrent },
+      { symbol: '4', cols: 3, action: this.addToCurrent },
+      { symbol: '5', cols: 3, action: this.addToCurrent },
+      { symbol: '6', cols: 3, action: this.addToCurrent },
+      { symbol: '-', cols: 3, action: this.addToCurrent },
+      { symbol: '1', cols: 3, action: this.addToCurrent },
+      { symbol: '2', cols: 3, action: this.addToCurrent },
+      { symbol: '3', cols: 3, action: this.addToCurrent },
+      { symbol: '+', cols: 3, action: this.addToCurrent },
+      { symbol: '0', cols: 3, action: this.addToCurrent },
+      { symbol: '.', cols: 3, action: this.addToCurrent },
+      { symbol: '=', cols: 3, action: this.addToCurrent }
 
     ];
     return (
@@ -46,7 +47,7 @@ class App extends Component {
         <input className="result" type="text" value={this.state.current} />
         {
           buttons.map((btn, i) => {
-            return <Button symbol={btn.symbol} cols={btn.cols} action={(symbol) => btn.action} />
+            return <Button key={i} symbol={btn.symbol} cols={btn.cols} action={(symbol) => btn.action} />
           })
         }
       </div>
