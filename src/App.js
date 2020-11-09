@@ -10,23 +10,26 @@ class App extends Component {
     this.state = {
       current: '0',
       previous: []
-    }
+    };
   }
 
   reset = () => {
     console.log('clicked reset');
     this.setState({ result: '0' });
-  }
+  };
 
   addToCurrent = (symbol) => {
     console.log(symbol);
-    if (["/", "-", "+", "x"].indexOf(symbol) > -1){
+    if (["/", "-", "+", "x"].indexOf(symbol) > -1) {
+      let { previous } = this.state;
+      previous.concat(this.state.current + symbol);
+      this.setState({ previous });
 
     } else {
-      
+      console.log("Here");
     }
-      this.setState({ current: this.state.current + symbol });
-  }
+    this.setState({ current: this.state.current + symbol });
+  };
 
   render() {
 
@@ -60,7 +63,7 @@ class App extends Component {
         <input className="result" type="text" value={this.state.current} />
         {
           buttons.map((btn, i) => {
-            return <Button key={i} index={i} symbol={btn.symbol} cols={btn.cols} action={(symbol) => btn.action(symbol)} />
+            return <Button key={i} index={i} symbol={btn.symbol} cols={btn.cols} action={(symbol) => btn.action(symbol)} />;
           })
         }
       </div>
